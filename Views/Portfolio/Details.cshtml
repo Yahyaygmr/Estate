@@ -1,0 +1,95 @@
+﻿@model Estate.Models.Portfolio
+
+@{
+    ViewData["Title"] = "Detay";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container">
+    <h1>Portföy Detay</h1>
+
+    <div style="font-size:20px;">
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-4" style="margin-bottom:8px;">
+                @Html.DisplayNameFor(model => model.Mahalle)
+            </dt>
+            <dd class="col-sm-6" style="margin-bottom:8px;">
+                @Html.DisplayFor(model => model.Mahalle)
+            </dd>
+            <dt class="col-sm-4" style="margin-bottom:8px;">
+                @Html.DisplayNameFor(model => model.AdaParsel)
+            </dt>
+            <dd class="col-sm-6" style="margin-bottom:8px;">
+                @Html.DisplayFor(model => model.AdaParsel)
+            </dd>
+            <dt class="col-sm-4" style="margin-bottom:8px;">
+                @Html.DisplayNameFor(model => model.Konum)
+            </dt>
+            <dd class="col-sm-6" style="margin-bottom:8px;">
+                <a href="@Model.Konum" target="_blank">Konum Linki</a>
+            </dd>
+            <dt class="col-sm-4" style="margin-bottom:8px;">
+                @Html.DisplayNameFor(model => model.Alan)
+            </dt>
+            <dd class="col-sm-6" style="margin-bottom:8px;">
+                @Html.DisplayFor(model => model.Alan) m²
+            </dd>
+            <dt class="col-sm-4" style="margin-bottom:8px;">
+                @Html.DisplayNameFor(model => model.Emsal)
+            </dt>
+            <dd class="col-sm-6" style="margin-bottom:8px;">
+                @Html.DisplayFor(model => model.Emsal)
+            </dd>
+            <dt class="col-sm-4" style="margin-bottom:8px;">
+                @Html.DisplayNameFor(model => model.Fiyat)
+            </dt>
+            <dd class="col-sm-6" style="margin-bottom:8px;">
+                @Model.Fiyat.ToString("0,000.00") ₺
+            </dd>
+            <dt class="col-sm-4" style="margin-bottom:8px;">
+                @Html.DisplayNameFor(model => model.MFiyat)
+            </dt>
+            <dd class="col-sm-6" style="margin-bottom:8px;">
+                @Model.MFiyat.ToString("0,000.00") ₺
+            </dd>
+            <dt class="col-sm-4" style="margin-bottom:8px;">
+                @Html.DisplayNameFor(model => model.Acıklama)
+            </dt>
+            <dd class="col-sm-6" style="margin-bottom:8px;">
+                @Html.DisplayFor(model => model.Acıklama)
+            </dd>
+            <dt class="col-sm-4" style="margin-bottom:8px;">
+                @Html.DisplayNameFor(model => model.Sunum)
+            </dt>
+            <dd class="col-sm-6" style="margin-bottom:8px;">
+                <a href="@Model.Sunum" target="_blank">Sunum Linki</a>
+            </dd>
+            <dt class="col-sm-4" style="margin-bottom:8px;">
+                @Html.DisplayNameFor(model => model.Tarih)
+            </dt>
+            <dd class="col-sm-6" style="margin-bottom:8px;">
+                @Html.DisplayFor(model => model.Tarih)
+            </dd>
+            <dt class="col-sm-4" style="margin-bottom:8px;">
+                Yayına Al
+            </dt>
+            <dd class="col-sm-6" style="margin-bottom:8px;">
+                @if (Model.Status)
+                {
+                    <a class="btn btn-success">Yayında</a>
+                }
+                else
+                {
+                    <a class="btn btn-danger">Pasif</a>
+                }
+            </dd>
+        </dl>
+    </div>
+
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-info"><i class="bi bi-arrow-left"></i> Listeye Dön</a>
+    <a class="btn btn-dark" asp-action="Edit" asp-route-id="@Model.Id"><i class="bi bi-pen"></i> Düzenle</a>
+</div>
